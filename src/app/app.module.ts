@@ -7,6 +7,8 @@ import { PlaceComponent } from './components/place/place.component';
 import { PlaceService } from './services/place.service';
 // HttpClientModule to make http requests to the server api
 import { HttpClientModule } from '@angular/common/http'
+// Forms for input binding
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http'
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PlaceService],
   bootstrap: [PlaceComponent]

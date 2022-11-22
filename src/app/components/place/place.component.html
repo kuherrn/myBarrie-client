@@ -1,1 +1,40 @@
 <h1>My Barrie</h1>
+<div class="row">
+    <div class="col-6">
+        <h2>Our Favourite Places</h2>
+        <ul class="list-group">
+            <li *ngFor="let place of places" class="list-group-item">
+                <span class="list-group-item active">{{place.name}}</span>
+                <!--<p>{{place.location}}</p>
+                <p>{{place.description}}</p>
+                <p>{{place.category}}</p>-->
+            </li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <h2>Place Details</h2>
+        <fieldset class="p-2">
+            <label class="col-2">Name:</label>
+            <input [(ngModel)]="name" />
+        </fieldset>
+        <fieldset class="p-2">
+            <label class="col-2">Location:</label>
+            <input [(ngModel)]="location" />
+        </fieldset>
+        <fieldset class="p-2">
+            <label class="col-2">Description:</label>
+            <textarea [(ngModel)]="description"></textarea>
+        </fieldset>
+        <fieldset class="p-2">
+            <label class="col-2">Category:</label>
+            <select [(ngModel)]="category">
+                <option>Eat/Drink</option>
+                <option>Play</option>
+                <option>Shop</option>
+            </select>
+        </fieldset>
+        <div class="offset-2">
+            <button class="btn btn-primary" (click)="addPlace()">Save</button>
+        </div>
+    </div>
+</div>
