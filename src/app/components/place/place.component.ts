@@ -38,7 +38,6 @@ export class PlaceComponent implements OnInit {
     this.service.addPlace(place).subscribe(response => {
       // update the list
       this.getPlaces()
-
       // clear the form
       this.clearForm()
     })
@@ -58,6 +57,32 @@ export class PlaceComponent implements OnInit {
     this.location = location
     this.description = description
     this.category = category
+  }
+
+  deletePlace(_id: string): void {
+    if (confirm('Are you sure you want to delete this?')) {
+      this.service.deletePlace(_id).subscribe(response => {
+        this.getPlaces() // refresh list
+        this.clearForm() // wipe out form input values
+        alert('Deletion Successful')
+      })
+    }
+  }
+
+  updatePlace(): void {
+    let place = {
+      _id: this._id,
+      name: this.name,
+      location: this.location,
+      description: this.description,
+      category: this.category
+    }
+
+    this.service.updatePlace(place).subscribe(response => {
+      this.getPlaces() // refresh list
+      this.clearForm() // wipe out form input values
+      //alert('Update Successful')
+    })
   }
 
   // fetch data whenever this component is instantiated

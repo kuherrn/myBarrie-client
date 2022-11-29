@@ -29,4 +29,14 @@ export class PlaceService {
   addPlace(place: any) {
     return this.http.post(`${this.serverUrl}/api/places`, place, {headers: headers})
   }
+
+  // delete place
+  deletePlace(_id: string) {
+    return this.http.delete(`${this.serverUrl}/api/places/${_id}`)
+  }
+
+  // update place
+  updatePlace(place: any) {
+    return this.http.put(`${this.serverUrl}/api/places/${place._id}`, place, {headers: headers})
+  }
 }

@@ -37,9 +37,10 @@
             </select>
         </fieldset>
         <div class="offset-2">
-            <button class="btn btn-primary" (click)="addPlace()">Save</button>
+            <button class="btn btn-primary" (click)="addPlace()" *ngIf="!_id">Save</button>
+            <button class="btn btn-primary" (click)="updatePlace()" *ngIf="_id">Save</button>
             <button class="btn btn-primary m-1" (click)="clearForm()">Reset</button>
-            <button class="btn btn-danger m-1" *ngIf="_id">Delete</button>
+            <button class="btn btn-danger m-1" (click)="deletePlace(_id)" *ngIf="_id">Delete</button>
         </div>
     </div>
 </div>
