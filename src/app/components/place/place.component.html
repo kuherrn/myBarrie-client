@@ -4,7 +4,10 @@
         <h2>Our Favourite Places</h2>
         <ul class="list-group">
             <li *ngFor="let place of places" class="list-group-item">
-                <span class="list-group-item active">{{place.name}}</span>
+                <a href="#" class="list-group-item active" 
+                    (click)="selectPlace(place._id, place.name, place.location, place.description, place.category)">
+                    {{place.name}}
+                </a>
                 <!--<p>{{place.location}}</p>
                 <p>{{place.description}}</p>
                 <p>{{place.category}}</p>-->
@@ -35,6 +38,8 @@
         </fieldset>
         <div class="offset-2">
             <button class="btn btn-primary" (click)="addPlace()">Save</button>
+            <button class="btn btn-primary m-1" (click)="clearForm()">Reset</button>
+            <button class="btn btn-danger m-1" *ngIf="_id">Delete</button>
         </div>
     </div>
 </div>

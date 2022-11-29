@@ -12,6 +12,7 @@ export class PlaceComponent implements OnInit {
   constructor(private service: PlaceService) { }
 
   places: any
+  _id: string | undefined
   name: string | undefined
   location: string | undefined
   description: string | undefined
@@ -44,10 +45,19 @@ export class PlaceComponent implements OnInit {
   }
 
   clearForm(): void {
+    this._id = undefined
     this.name = undefined
     this.location = undefined
     this.description = undefined
     this.category = undefined
+  }
+
+  selectPlace(_id: string, name: string, location: string, description: string, category:string): void {
+    this._id = _id
+    this.name = name
+    this.location = location
+    this.description = description
+    this.category = category
   }
 
   // fetch data whenever this component is instantiated
